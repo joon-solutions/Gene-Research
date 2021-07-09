@@ -1,2 +1,2 @@
-# Lucas
+# Gene research
 The Flen project
