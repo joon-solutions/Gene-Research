@@ -58,6 +58,8 @@ class Gene():
                         return "Age related"
                     else:
                         return "Inconclusive"
+            else:
+                return "Inconclusive"
 
 
 gene_research = Gene()
