@@ -20,8 +20,8 @@ class Gene():
         row_U1U20 = self.df_U1U20.loc[self.df_U1U20['KEGG Gene ID'] == name]
 
         if len(row_U1T1) == 0 or len(row_U20T76) == 0 or len(row_U1T76) == 0 or len(row_U1U20) == 0:
-            print("Aborted, lack of data!")
-            return 0
+            # print("Aborted, lack of data!")
+            return "No, non-significance"
 
         if check(row_U1T1):
             if check(row_U20T76):
@@ -34,30 +34,30 @@ class Gene():
                     if not check(row_U1U20):
                         return "MOA-related, but effect is age-dependent"
                     else:
-                        return "No data"
+                        return "Inconclusive"
             else:
                 if check(row_U1T76):
                     if not check(row_U1U20):
                         return "MOA-related, but effect is age-dependent"
                     else:
-                        return "No data"
+                        return "Inconclusive"
                 else:
                     if not check(row_U1U20):
                         return "MOA-related, but effect is age-dependent"
                     else:
-                        return "No data"
+                        return "Inconclusive"
         else:
             if not check(row_U20T76):
                 if check(row_U1T76):
                     if check(row_U1U20):
                         return "Age-related, but effect can be treatment-dependent"
                     else:
-                        return "No data"
+                        return "Inconclusive"
                 else:
                     if check(row_U1U20):
                         return "Age related"
                     else:
-                        return "No data"
+                        return "Inconclusive"
 
 
 gene_research = Gene()
