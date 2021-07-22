@@ -3,7 +3,7 @@ The Flen project
 
 ## Overview
 The following decision tree represents the logic that determine the type of the gene based on the fold-change value and p value.<br />
-Specifically, the gene is determined to be interesting if the fold-change $\geq$ 0.5 and p-value $\leq$ 0.05.
+Specifically, the gene is determined to be interesting if the fold-change >= 0.5 and p-value <= 0.05.
 
 The tree represents those characteristics which is determined to be interesting, there are a few branches where there is a sub-branch for one condition but no branch for the other. Those sub-branches which are not listed on the tree are defined as "Inconclusive".
 
