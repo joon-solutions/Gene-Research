@@ -7,10 +7,10 @@ def check(row):
 class Gene():
     def __init__(self) -> None:
         cols = [3, 9, 11]
-        self.df_U1T1 = pd.read_excel ('U1_vs_T1.xlsx', sheet_name='Sheet1', usecols=cols)
-        self.df_U20T76 = pd.read_excel ('U20_vs_T76.xlsx', sheet_name='U20_vs_T76', usecols=cols)
-        self.df_U1T76 = pd.read_excel ('U1_vs_T76.xlsx', sheet_name='Sheet1', usecols=cols)
-        self.df_U1U20 = pd.read_excel ('U1_vs_U20.xlsx', sheet_name='Sheet1', usecols=cols)
+        self.df_U1T1 = pd.read_excel ('U1_vs_T1.xlxs', sheet_name='Sheet1', usecols=cols)
+        self.df_U20T76 = pd.read_excel ('U20_vs_T76.xlxs', sheet_name='U20_vs_T76', usecols=cols)
+        self.df_U1T76 = pd.read_excel ('U1_vs_T76.xlxs', sheet_name='Sheet1', usecols=cols)
+        self.df_U1U20 = pd.read_excel ('U1_vs_U20.xlxs', sheet_name='Sheet1', usecols=cols)
     
     def main(self):
         name = input("Please insert name: ")
