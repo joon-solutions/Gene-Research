@@ -16,10 +16,14 @@ The tree represents those characteristics which is determined to be interesting,
 - pandas
 
 ### Run
+We have two ways to use the program. User can just run the ```main.py``` as follow and then input the KEGG Gene ID to find out the result.
 ```
 python main.py
 ```
 The program will ask you to enter the "KEGG Gene ID" of the gene you want to check and return the type of gene based on the logic we defined on the decision tree.
+
+Or just find the csv file which contain all the results we got after running the program in batch.
+
 
 ## Acknowledgement
 Should you have any question on this program, feel free to reach out at <tu.vv@joonsolutions.com>
