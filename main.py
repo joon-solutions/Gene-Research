@@ -1,3 +1,4 @@
+import csv
 import pandas as pd
 
 def check(row):
@@ -12,8 +13,7 @@ class Gene():
         self.df_U1T76 = pd.read_excel ('U1_vs_T76.xlxs', sheet_name='Sheet1', usecols=cols)
         self.df_U1U20 = pd.read_excel ('U1_vs_U20.xlxs', sheet_name='Sheet1', usecols=cols)
     
-    def main(self):
-        name = input("Please insert name: ")
+    def run(self, name):
         row_U1T1 = self.df_U1T1.loc[self.df_U1T1['KEGG Gene ID'] == name]
         row_U20T76 = self.df_U20T76.loc[self.df_U20T76['KEGG Gene ID'] == name]
         row_U1T76 = self.df_U1T76.loc[self.df_U1T76['KEGG ID'] == name]
@@ -61,6 +61,23 @@ class Gene():
             else:
                 return "Inconclusive"
 
+    def main(self, auto=False):
+        if not auto:
+            name = input("Please insert name: ")
+            self.run(name=name)
+        else:
+            names = self.df_U1T1['KEGG Gene ID']
+            for name in names:
+                with open('output/results.csv', 'a') as f:
+                    writer = csv.writer(f)
+                    result = self.run(name)
+                    row = [str(name), str(result)]
+                    writer.writerow(row)
+                f.close()
+                    
+
+
+
 
 gene_research = Gene()
-print(gene_research.main())
+print(gene_research.main(auto=True))
