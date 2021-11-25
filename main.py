@@ -69,7 +69,7 @@ class Gene():
     def main(self, auto=False):
         if not auto:
             name = input("Please insert name: ")
-            self.run(name=name)
+            return self.run(name=name)
         else:
             names = self.df_U1T1['KEGG Gene ID']
             for name in names:
