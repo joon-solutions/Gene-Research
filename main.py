@@ -1,6 +1,7 @@
 import csv
 import pandas as pd
 
+
 def check(row):
     return list(row['Log₂ fold change'])[0] > 0.5 and list(row['P-value'])[0] < 0.05
 
@@ -8,11 +9,15 @@ def check(row):
 class Gene():
     def __init__(self) -> None:
         cols = [3, 9, 11]
-        self.df_U1T1 = pd.read_excel ('U1_vs_T1.xlxs', sheet_name='Sheet1', usecols=cols)
-        self.df_U20T76 = pd.read_excel ('U20_vs_T76.xlxs', sheet_name='U20_vs_T76', usecols=cols)
-        self.df_U1T76 = pd.read_excel ('U1_vs_T76.xlxs', sheet_name='Sheet1', usecols=cols)
-        self.df_U1U20 = pd.read_excel ('U1_vs_U20.xlxs', sheet_name='Sheet1', usecols=cols)
-    
+        self.df_U1T1 = pd.read_excel(
+            'U1_vs_T1.xlxs', sheet_name='Sheet1', usecols=cols)
+        self.df_U20T76 = pd.read_excel(
+            'U20_vs_T76.xlxs', sheet_name='U20_vs_T76', usecols=cols)
+        self.df_U1T76 = pd.read_excel(
+            'U1_vs_T76.xlxs', sheet_name='Sheet1', usecols=cols)
+        self.df_U1U20 = pd.read_excel(
+            'U1_vs_U20.xlxs', sheet_name='Sheet1', usecols=cols)
+
     def run(self, name):
         row_U1T1 = self.df_U1T1.loc[self.df_U1T1['KEGG Gene ID'] == name]
         row_U20T76 = self.df_U20T76.loc[self.df_U20T76['KEGG Gene ID'] == name]
@@ -74,10 +79,8 @@ class Gene():
                     row = [str(name), str(result)]
                     writer.writerow(row)
                 f.close()
-                    
 
 
-
-
-gene_research = Gene()
-print(gene_research.main(auto=True))
+if __name__ == '__main__':
+    gene_research = Gene()
+    print(gene_research.main(auto=False))
