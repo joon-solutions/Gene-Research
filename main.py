@@ -1,4 +1,5 @@
 import csv
+import argparse
 import pandas as pd
 
 
@@ -79,8 +80,18 @@ class Gene():
                     row = [str(name), str(result)]
                     writer.writerow(row)
                 f.close()
+            return 'Run successfully! Check output folder!'
 
 
 if __name__ == '__main__':
+    ap = argparse.ArgumentParser()
+    ap.add_argument('--auto', default='Y', type=str,
+                    help='Do you want to run automatically?')
+
+    # Importable object
+    args = ap.parse_args()
     gene_research = Gene()
-    print(gene_research.main(auto=False))
+    if args.auto == 'Y':
+        print(gene_research.main(auto=True))
+    else:
+        print(gene_research.main(auto=False))
